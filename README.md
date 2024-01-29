@@ -1,0 +1,3 @@
+ポピュレーションダイナミクスの数値例を作成するためのアプリ
+
+https://populationdynamicssimulation-9sjtfkmzitdenb8bbvdaor.streamlit.app/
