@@ -42,7 +42,59 @@ def bnn(x,p):
 
     return rho
 
+
+
+def replicator(x,p):
+    '''レプリケータダイナミクス
+    
+    Parameters:
+    ----------
+    x : list[float]
+    p : list[float]
+
+    Returns:
+    ----------
+    rho : list[float]
+       利得がpのときの改訂プロトコル
+    '''
+    rho = []
+    n_strategy = len(x)
+    for bfo_index in range(n_strategy):
+        rho_i = []
+        for aft_index in range(n_strategy):
+            rho_ij = x[aft_index]*max(0, p[aft_index]-p[bfo_index])
+            rho_i.append(rho_ij)
+        rho.append(rho_i)
+
+    return rho
+
+
+
+def smith(x,p):
+    '''スミスダイナミクス
+    
+    Parameters:
+    ----------
+    x : list[float]
+    p : list[float]
+
+    Returns:
+    ----------
+    rho : list[float]
+       利得がpのときの改訂プロトコル
+    '''
+    rho = []
+    n_strategy = len(x)
+    for bfo_index in range(n_strategy):
+        rho_i = []
+        for aft_index in range(n_strategy):
+            rho_ij = max(0, p[aft_index]-p[bfo_index])
+            rho_i.append(rho_ij)
+        rho.append(rho_i)
+
+    return rho
+
 if __name__ == '__main__':
-    x = [0.1,0.5,0.4]
-    p = [-7.9, -12.86, -12.96]
+    x = [0.6,0.4]
+    p = [-12.86, -12.96]
     print(bnn(x,p))
