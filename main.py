@@ -53,6 +53,14 @@ def discrete(x, n_strategy, dynamics_option):
 
 if __name__ == "__main__":
     st.title("数値シミュレーション作成")
+    st.text("問題設定")
+    st.latex(
+        r'''
+\max_{x\in \mathcal X }\min_{i\in N}V_i(x)\\
+        V_i(x) = \exp(-(x-\mu_i)^2)\;\text{for}\;i\in N = \{1,2\}\\
+        \mu = \{-1,1\}\;,\;x\in \mathcal X
+'''
+    )
 
     st.sidebar.title("変数の設定")
     dynamics_option = st.sidebar.radio(
